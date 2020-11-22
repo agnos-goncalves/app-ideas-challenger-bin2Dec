@@ -5,7 +5,7 @@ describe('Class Converter', () => {
   beforeEach(() => {
     instance = new Converter();
   });
-  test('created', ()=>{
-    expect(true).toBeTruthy();
+  test('binaryToDecimal should converter binary to decimal number', ()=>{
+    expect(instance.binaryToDecimal('1111')).toBe(15);
   })
 })
