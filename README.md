@@ -1,2 +1,2 @@
 # app-ideas-challenger-bin2Dec
-insert all challanger
+This repository aims to solve the following challenge
