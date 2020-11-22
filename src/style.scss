@@ -12,7 +12,7 @@
   font-weight: bold;
 }
 .form-conversor-binary__message {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: normal;
   color: red;
 }
@@ -40,18 +40,30 @@
   align-items: center;
   flex-wrap: wrap;
   background-color: white;
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+  }
   .form-conversor-binary__label,
   .form-conversor-binary__message {
     width: 100%;
   }
   .form-conversor-binary__field {
+    @media only screen and (max-width: 600px) {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 6px;
+    }
     flex: 1;
     margin-right: 16px;
   }
+  .form-conversor-binary__btn {
+    @media only screen and (max-width: 600px) {
+      width: 100%;
+    }
+  }
 }
-
 .form-converter-results__btn {
-  width: 100px;
+  width: 110px;
   background: royalblue;
   color: white;
   font-weight: bold;
@@ -64,12 +76,25 @@
 
 .box-converter-result__item {
   font-size: 14px;
-  padding: 20px 14px;
+  padding: 12px 14px;
   border: 1px solid #e2e2e2;
   border-radius: 6px;
   word-wrap: break-word;
   label {
     font-weight: bold;
+    &:nth-child(3) {
+      margin-left: 8px;
+    }
+    @media only screen and (max-width: 600px) {
+      display: block;
+      margin-top: 4px;
+      &:nth-child(1) {
+        margin-top: 0;
+      }
+      &:nth-child(3) {
+        margin-left: 0;
+      }
+    }
   }
 }
 .box-converter-result {
@@ -77,6 +102,16 @@
   width: 100%;
   padding: 0;
   margin: 0;
+  .box-converter-result__item {
+    margin-bottom: 4px;
+  }
+}
+
+.container__title {
+  @media only screen and (max-width: 600px) {
+    font-size: 22px;
+  }
+  font-size: 38px;
 }
 
 .container {
@@ -103,20 +138,20 @@
     }
   }
   .form-conversor-binary,
-  .form-converter-results {
-    width: 100%;
+  .form-converter-results,
+  .box-converter-result {
+    width: 96%;
     max-width: 480px;
     margin-bottom: 20px;
   }
   .form-converter-results {
     margin-bottom: 10px;
   }
-  .box-converter-result {
-    width: 100%;
-    max-width: 520px;
-  }
 }
 
+* {
+  box-sizing: border-box;
+}
 body {
   padding: 0;
   margin: 0;
