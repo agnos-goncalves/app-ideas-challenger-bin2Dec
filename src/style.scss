@@ -43,6 +43,18 @@
   @media only screen and (max-width: 600px) {
     flex-direction: column;
   }
+  &[valid="false"] {
+    .form-conversor-binary__btn {
+      cursor: not-allowed;
+      background-color: #9999;
+      color: #222222;
+    }
+  }
+  &[valid="true"] {
+    .form-conversor-binary__message {
+      display: none;
+    }
+  }
   .form-conversor-binary__label,
   .form-conversor-binary__message {
     width: 100%;
