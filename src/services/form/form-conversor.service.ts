@@ -1,37 +1,62 @@
-type FormConversorConfig = {
-  container:string;
-  field:string;
-  button:string;
+import { Converter } from "../converter/converter.service";
+export type submitPayload = {
+  binary:string;
+  decimal:number
 }
 
-type FormConversorConfigSelectors = {
-  container:Element;
-  field:Element;
-  button:Element;
-}
 export class FormConversor {
-  private form:FormConversorConfigSelectors;
+  private converter:Converter;
+  private currentBinary:string;
+  private observers:Function[] = [];
+  formSelector:string;
 
-  constructor(config:FormConversorConfig){
-    this.formPropertiesInitializer(config);
+  get form():HTMLFormElement {
+    return document.querySelector(this.formSelector)
   }
+  constructor(formSelector:string){
+    this.formSelector = formSelector;
+    this.converter = new Converter();
+    this.addEventsListeners();
+  }  
 
-  formPropertiesInitializer(config:FormConversorConfig):void {
-    const {container, field, button} = config;
-    this.form.container = document.querySelector(container);
-    this.form.field = this.form.container.querySelector(field);
-    this.form.button = this.form.container.querySelector(button);
-  }
-
-  isValidBinary(value:string):boolean {
-    return /^[01]+$/.test(value);
+  addEventsListeners():void {
+    this.form.querySelector('button').addEventListener('click', this.onHandleSubmit.bind(this));
+    this.form.querySelector('input').addEventListener('keyup', this.onHandleFieldValueChange.bind(this));
   }
   
-
-  getFieldValue(event:Event):string {
+  onHandleSubmit(event:Event):void {
     event.stopPropagation();
     event.preventDefault();
-    return this.form.field.getAttribute('value');
+    const binary = this.currentBinary;
+    const isValidBinary = this.converter.isValidBinary(binary);
+    if(isValidBinary){
+      const decimal = this.converter.binaryToDecimal(binary);
+      this.submit({binary, decimal});
+      this.form.reset();
+      (<HTMLFormElement>event.target).blur();
+      this.currentBinary = undefined;
+    }
   }
-  
+
+  onHandleFieldValueChange(event:Event):void {
+    event.stopPropagation();
+    event.preventDefault();
+    const binary = (<HTMLInputElement>event.target).value;
+    const isValidBinaryAttribute = 
+      binary === '' ||
+      this.converter.isValidBinary(binary) ? 'true' : 'false';
+
+    this.currentBinary = binary;
+    this.form.setAttribute('valid', isValidBinaryAttribute);
+  }
+
+  submit(submitPayload:submitPayload):void {
+    this.observers.forEach((observer:Function)=>{
+      observer(submitPayload);
+    })
+  }
+
+  onSubmit(callback:Function):void {
+    this.observers.push(callback);
+  }
 }
