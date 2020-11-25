@@ -1,5 +1,7 @@
 export class Converter {
-  
+  isValidBinary(value:string):boolean {
+    return /^[01]+$/.test(value);
+  }
   binaryToDecimal(binary:string):number {
     let decimal = 0;
     const binarySequence = binary.split('');
