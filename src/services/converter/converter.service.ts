@@ -1,4 +1,5 @@
 export class Converter {
+  
   isValidBinary(value:string):boolean {
     return /^[01]+$/.test(value);
   }
@@ -7,6 +8,7 @@ export class Converter {
     let decimal = 0;
     const binarySequence = binary.split('');
     const binaryLength = binarySequence.length;
+
     binarySequence.forEach((binaryUnity, index)=>{
       const currentPower = binaryLength - (index + 1);
       const currentPowerValue = Math.pow(2, currentPower);
