@@ -1,10 +1,12 @@
 import { Converter } from "../converter/converter.service";
+
 export type submitPayload = {
   binary:string;
   decimal:number
 }
 
 export class FormConversor {
+
   private converter:Converter;
   private currentBinary:string;
   private observers:Function[] = [];
@@ -13,6 +15,7 @@ export class FormConversor {
   get form():HTMLFormElement {
     return document.querySelector(this.formSelector)
   }
+  
   constructor(formSelector:string){
     this.formSelector = formSelector;
     this.converter = new Converter();

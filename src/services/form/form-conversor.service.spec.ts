@@ -28,7 +28,7 @@ describe('Class FormConversor', () => {
     jest.spyOn(service, 'form', 'get').mockReturnValue(domSpy);
   });
 
-  test('constructor should setup instance FormConversor', () => {
+  test('constructor should create instance FormConversor and setup initial configs', () => {
     const spyFnc = jest.spyOn(FormConversor.prototype, 'addEventsListeners')
       .mockImplementationOnce(jest.fn());
     const instance = new FormConversor('.form');
