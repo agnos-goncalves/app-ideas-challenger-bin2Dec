@@ -5,7 +5,7 @@
 
 export default {
   preset: 'ts-jest',
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom',
   clearMocks: true,
   coverageDirectory: "coverage",
   coverageProvider: "v8",
