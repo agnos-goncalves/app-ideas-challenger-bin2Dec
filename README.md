@@ -7,10 +7,10 @@ Link to Challenge: [https://github.com/florinpop17/app-ideas/blob/master/Project
 ## Images
 
 #initial state
-![Screenshot](./src/img/interface-state-1)
+![Screenshot](./src/img/interface-state-1.jpg)
 
 #insert binary value
-![Screenshot](./src/img/interface-state-2)
+![Screenshot](./src/img/interface-state-2.jpg)
 
 #show result binary value on decimal
-![Screenshot](./src/img/interface-state-3)
+![Screenshot](./src/img/interface-state-3.jpg)
