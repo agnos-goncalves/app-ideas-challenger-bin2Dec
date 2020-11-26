@@ -3,13 +3,6 @@ import { FormResult, resultItem } from "./form-result.service";
 describe('Class FormResult', () => {
   let service:FormResult;
   let spyQuerySelector:jest.SpyInstance;
-  // const eventDom:any = {
-  //   stopPropagation: ()=>{},
-  //   preventDefault: ()=>{},
-  //   target:{
-  //     blur: ()=>{}
-  //   }
-  // }
   const domSpy:any = {
     innerHTML: '',
     prepend: ()=>{},

@@ -4,12 +4,13 @@ This repository aims to solve the following challenge
 
 Link to Challenge: [https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Bin2Dec-App.md]
 
-## User Stories
+## Images
 
-- [ ] User can enter up to 8 binary digits in one input field
-- [ ] User must be notified if anything other than a 0 or 1 was entered
-- [ ] User views the results in a single output field containing the decimal (base 10) equivalent of the binary number that was entered
+#initial state
+![Screenshot](./src/img/interface-state-1)
 
-## Bonus features
+#insert binary value
+![Screenshot](./src/img/interface-state-2)
 
-- [ ] User can enter a variable number of binary digits
+#show result binary value on decimal
+![Screenshot](./src/img/interface-state-3)
