@@ -9,5 +9,10 @@ export default {
   clearMocks: true,
   coverageDirectory: "coverage",
   coverageProvider: "v8",
-  testPathIgnorePatterns: ["./node_modules/", './src/style.scss']
+  testPathIgnorePatterns: [
+    '<rootDir>/cypress'
+  ],
+  collectCoverageFrom: [
+    "src/**/*.{js,jsx,ts,tsx}"
+  ]
 };
